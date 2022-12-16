@@ -2,10 +2,11 @@
     height: 100%;
     width: 100%;
     left: 0;
-    top: 0;
+    top: 1;
     overflow: hidden;
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #352f40;
 }
