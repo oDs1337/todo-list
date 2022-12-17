@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tasks-box',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./tasks-box.component.css']
 })
 export class TasksBoxComponent {
+
+  @Input() done:boolean = false;
 
 }

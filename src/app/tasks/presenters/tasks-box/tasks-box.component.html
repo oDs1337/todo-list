@@ -1,1 +1,10 @@
-<p>tasks-box works!</p>
+<div class="tasks">
+    <div class="tasks__title">
+        <ng-container *ngIf="done; else templateUndone">
+            Done tasks:
+        </ng-container>
+        <ng-template #templateUndone>
+            Undone tasks:
+        </ng-template>
+    </div>
+</div>
