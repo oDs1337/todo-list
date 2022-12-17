@@ -1,9 +1,13 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row class="navbar">
         <div class="navbar__menu">
-            <button mat-icon-button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon>menu</mat-icon>
             </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="">Todo list</button>
+                <button mat-menu-item routerLink="login">Login</button>
+            </mat-menu>
         </div>
         <div class="navbar__title">
             <span>Another ToDo list</span>
