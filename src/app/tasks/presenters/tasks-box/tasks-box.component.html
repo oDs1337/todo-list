@@ -7,7 +7,7 @@
             Undone tasks:
         </ng-template>
     </div>
-    <div class="tasks__singleRecord">
+    <div class="tasks__singleRecord" [ngClass]="done ? 'doneTask' : 'undoneTask'">
         <div class="singleRecord__isDone flexCenter">
             <mat-checkbox color="primary"></mat-checkbox>
         </div>

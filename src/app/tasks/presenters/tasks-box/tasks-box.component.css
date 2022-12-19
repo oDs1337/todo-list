@@ -42,3 +42,10 @@
     align-items: center;
     justify-content: center;
 }
+.doneTask{
+    border: 1px solid blue;
+}
+.undoneTask{
+    border: 1px solid red;
+}
+
