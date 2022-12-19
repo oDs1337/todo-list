@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TasksBoxComponent } from './presenters/tasks-box/tasks-box.component';
 import { TasksComponent } from './containers/tasks/tasks.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { TasksComponent } from './containers/tasks/tasks.component';
   ],
   imports: [
     CommonModule,
-    TasksRoutingModule
+    TasksRoutingModule,
+    MatCheckboxModule,
   ],
   exports: [
     TasksBoxComponent,

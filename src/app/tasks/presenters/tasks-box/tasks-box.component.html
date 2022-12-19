@@ -1,5 +1,5 @@
 <div class="tasks">
-    <div class="tasks__title">
+    <div class="tasks__title flexCenter">
         <ng-container *ngIf="done; else templateUndone">
             Done tasks:
         </ng-container>
@@ -7,4 +7,21 @@
             Undone tasks:
         </ng-template>
     </div>
+    <div class="tasks__singleRecord" [ngClass]="done ? 'doneTask' : 'undoneTask'">
+        <div class="singleRecord__isDone flexCenter">
+            <mat-checkbox color="primary"></mat-checkbox>
+        </div>
+        <div class="singleRecord__description">
+            <span>descriptiondescription</span>
+        </div>
+        <div class="singleRecord__dates">
+            <div class="dates__creationDate datesFlex">
+                creation Date 26, oct 2022
+            </div>
+            <div class="dates__expiryDate datesFlex">
+                expiry Date 26, oct 2022
+            </div>
+        </div>
+    </div>
+
 </div>
