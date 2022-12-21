@@ -1,3 +1,4 @@
+import { Task } from './../../../interfaces/task';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -7,6 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class TasksBoxComponent {
 
-  @Input() done:boolean = false;
+  @Input() tasks: Task[] = [];
+  @Input() done: boolean = false;
 
 }
