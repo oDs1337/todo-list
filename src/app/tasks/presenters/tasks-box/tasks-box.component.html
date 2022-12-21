@@ -9,7 +9,7 @@
     </div>
     <div class="tasks__singleRecord" *ngFor="let item of tasks" [ngClass]="item.isDone ? 'doneTask' : 'undoneTask'">
         <div class="singleRecord__isDone flexCenter">
-            <mat-checkbox color="primary" checked={{item.isDone}} (change)="dupa()"></mat-checkbox>
+            <mat-checkbox color="primary" checked={{item.isDone}} (change)="checkboxManagment()"></mat-checkbox>
         </div>
         <div class="singleRecord__description">
             <span>{{item.taskDescription}} / </span>

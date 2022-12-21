@@ -1,6 +1,6 @@
 import { Task } from './../../../interfaces/task';
 import { Component, Input } from '@angular/core';
-import { test } from 'src/app/shared/components/nav-bar/alerts/checkboxAlert';
+import { confirmationAlert } from 'src/app/shared/components/nav-bar/checkboxManagment/checkboxAlert';
 
 @Component({
   selector: 'app-tasks-box',
@@ -12,8 +12,8 @@ export class TasksBoxComponent {
   @Input() tasks: Task[] = [];
   @Input() done: boolean = false;
 
-  dupa(){
-    test();
+  checkboxManagment(){
+    confirmationAlert();
   }
 
 }
