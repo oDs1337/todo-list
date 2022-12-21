@@ -1,8 +1,8 @@
 <div class="tasks">
     <div class="undone">
-        <app-tasks-box [done]="false"></app-tasks-box>
+        <app-tasks-box [tasks]="undoneTasks"></app-tasks-box>
     </div>
     <div class="done">
-        <app-tasks-box [done]="true"></app-tasks-box>
+        <app-tasks-box [tasks]="doneTasks"></app-tasks-box>
     </div>
 </div>
