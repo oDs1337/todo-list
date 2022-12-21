@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Task } from '../interfaces/task';
+import { Task } from '../../interfaces/task';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,6 @@ export class TasksDatabaseService {
   fetchTasks(): void{
     this.http.get<Task[]>(this.#databaseUrl).subscribe((res) => {
       this.#tasks = res;
-      console.log(this.#tasks)
     });
   }
 
