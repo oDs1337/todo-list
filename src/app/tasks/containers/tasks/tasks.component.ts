@@ -1,6 +1,5 @@
 import { Task } from './../../../interfaces/task';
 import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
 import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.service';
 
 @Component({
