@@ -38,6 +38,8 @@ export class TasksComponent {
 
 
   sortTasks(): void{
+    this.doneTasks = [];
+    this.undoneTasks = [];
     this.tasks.forEach((element) => {
       if(element.isDone === true){
         this.doneTasks.push(element);
