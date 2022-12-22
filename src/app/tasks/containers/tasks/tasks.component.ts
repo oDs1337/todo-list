@@ -1,9 +1,9 @@
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Task } from './../../../interfaces/task';
 import { Component } from '@angular/core';
 import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.service';
 import { Store } from '@ngrx/store';
-import { Output, EventEmitter } from '@angular/core';
+import { OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-tasks',
@@ -13,34 +13,52 @@ import { Output, EventEmitter } from '@angular/core';
 
 export class TasksComponent {
 
-  tasks$: Observable<Task[]>;
+  tasks: Task[] = [];
+  tasksSubscription = new Subscription();
   undoneTasks: Task[] = [];
   doneTasks: Task[] = [];
 
-  constructor(private database: TasksDatabaseService, private store: Store<{ tasks: Task[]}>) {
-    this.tasks$ = store.select('tasks');
-   }
+  constructor(private database: TasksDatabaseService, private store: Store<{ tasks: Task[]}>) { }
 
   ngOnInit(): void{
     this.database.fetchTasks();
-    this.sortTasks();
+    this.getTasks();
   }
 
+  ngOnDestry(): void{
+    this.tasksSubscription.unsubscribe;
+  }
+
+  getTasks(): void{
+    this.store.select((state) => state.tasks).subscribe((res) => {
+      this.tasks = res;
+      this.sortTasks();
+    })
+  }
+
+
   sortTasks(): void{
-    this.tasks$.subscribe((res) => {
-      res.forEach((element) => {
-        if(element.isDone === true){
-          this.doneTasks.push(element);
-        }
-        else{
-          this.undoneTasks.push(element)
-        }
-      })
+    this.tasks.forEach((element) => {
+      if(element.isDone === true){
+        this.doneTasks.push(element);
+      }
+      else{
+        this.undoneTasks.push(element)
+      }
     })
   }
 
   checkboxChanged(task: Task): void {
-    console.log(task)
+    const payload: Task = {
+      id: task.id,
+      creationDate: task.creationDate,
+      expiryDate: task.expiryDate,
+      taskDescription: task.taskDescription,
+      isDone: this.changeIsDone(task.isDone)
+    }
+    this.database.modifyTask(payload);
+    this.database.fetchTasks();
+    this.getTasks();
   }
 
   changeIsDone(currentValue: boolean){

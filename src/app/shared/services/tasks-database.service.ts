@@ -22,6 +22,7 @@ export class TasksDatabaseService {
   }
 
   modifyTask(task: Task): void{
-    this.http.put<Task>(`${this.#patchUrl}${task.id}`, task);
+    console.log(`${this.#patchUrl}${task.id}`);
+    this.http.put<Task>(`${this.#patchUrl}${task.id}`, task).subscribe();
   }
 }
