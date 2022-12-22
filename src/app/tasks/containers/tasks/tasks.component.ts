@@ -3,12 +3,14 @@ import { Task } from './../../../interfaces/task';
 import { Component } from '@angular/core';
 import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.service';
 import { Store } from '@ngrx/store';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
+
 export class TasksComponent {
 
   tasks$: Observable<Task[]>;
@@ -36,4 +38,13 @@ export class TasksComponent {
       })
     })
   }
+
+  checkboxChanged(task: Task): void {
+    console.log(task)
+  }
+
+  changeIsDone(currentValue: boolean){
+    return !currentValue;
+  }
+
 }

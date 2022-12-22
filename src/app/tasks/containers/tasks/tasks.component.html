@@ -1,8 +1,8 @@
 <div class="tasks">
     <div class="undone">
-        <app-tasks-box [tasks]="undoneTasks" [done]="false"></app-tasks-box>
+        <app-tasks-box (check)="checkboxChanged($event)" [tasks]="undoneTasks" [done]="false"></app-tasks-box>
     </div>
     <div class="done">
-        <app-tasks-box [tasks]="doneTasks" [done]="true"></app-tasks-box>
+        <app-tasks-box (check)="checkboxChanged($event)" [tasks]="doneTasks" [done]="true"></app-tasks-box>
     </div>
 </div>
