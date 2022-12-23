@@ -1,7 +1,45 @@
-<form [formGroup]="addTaskForm" (ngSubmit)="onSubmit(addTaskForm.value)">
+<!-- <form [formGroup]="addTaskForm" (ngSubmit)="onSubmit(addTaskForm.value)">
     <input id="creationDate" type="text" formControlName="creationDate">
     <input id="expiryDate" type="text" formControlName="expiryDate">
     <input id="taskDescription" type="text" formControlName="taskDescription">
     <input id="isDone" type="text" formControlName="isDone">
     <button type="submit">Submit</button>
-</form>
+</form> -->
+<div class="taskForm taskForm-border">
+    <form [formGroup]="addTaskForm" (ngSubmit)="onSubmit(addTaskForm.value)">
+        <div class="taskForm__description">
+            <mat-form-field appearance="fill">
+                <mat-label>Task description</mat-label>
+                <input matInput formControlName="taskDescription">
+              </mat-form-field>
+        </div>
+
+        <div class="taskForm__creationDate">
+            <mat-form-field appearance="fill">
+                <mat-label>Creation date</mat-label>
+                <input matInput formControlName="creationDate">
+              </mat-form-field>
+        </div>
+
+        <div class="taskForm__expiryDate">
+            <mat-form-field appearance="fill">
+                <mat-label>Expiry date</mat-label>
+                <input matInput formControlName="expiryDate">
+              </mat-form-field>
+        </div>
+
+        <div class="taskForm__isDone">
+            <mat-form-field appearance="fill">
+                <mat-label>Is done?</mat-label>
+                <mat-select formControlName="isDone">
+                  <mat-option [value]="true">Taks is done</mat-option>
+                  <mat-option [value]="false">Taks is not done yet</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="taskForm__submit">
+            <button color="primary" mat-raised-button type="submit">Add new task</button>
+        </div>
+    </form>
+</div>
