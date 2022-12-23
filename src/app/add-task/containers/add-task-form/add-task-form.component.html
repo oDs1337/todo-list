@@ -1,0 +1,41 @@
+<!-- <form [formGroup]="addTaskForm" (ngSubmit)="onSubmit(addTaskForm.value)">
+    <input id="creationDate" type="text" formControlName="creationDate">
+    <input id="expiryDate" type="text" formControlName="expiryDate">
+    <input id="taskDescription" type="text" formControlName="taskDescription">
+    <input id="isDone" type="text" formControlName="isDone">
+    <button type="submit">Submit</button>
+</form> -->
+<div class="taskForm taskForm-border">
+    <form class="form" [formGroup]="addTaskForm" (ngSubmit)="onSubmit(addTaskForm.value)">
+        <div class="taskForm__description">
+            <mat-form-field appearance="fill">
+                <mat-label>Task description</mat-label>
+                <input matInput formControlName="taskDescription">
+              </mat-form-field>
+        </div>
+        <div class="taskForm__date">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate placeholder="Start date" formControlName="creationDate">
+                  <input matEndDate placeholder="End date" formControlName="expiryDate">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>
+        </div>
+        <div class="taskForm__isDone">
+            <mat-form-field appearance="fill">
+                <mat-label>Is done?</mat-label>
+                <mat-select formControlName="isDone">
+                  <mat-option [value]="true">Task is done</mat-option>
+                  <mat-option [value]="false">Task is not done yet</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="taskForm__submit">
+            <button color="primary" mat-raised-button type="submit" [disabled]="!addTaskForm.valid">Add new task</button>
+        </div>
+    </form>
+</div>
