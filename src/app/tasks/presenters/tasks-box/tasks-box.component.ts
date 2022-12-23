@@ -17,4 +17,8 @@ export class TasksBoxComponent {
     this.check.emit(value);
   }
 
+  dupa(timestamp: string){
+    return new Date(parseInt(timestamp) * 1000);
+  }
+
 }
