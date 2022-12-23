@@ -62,7 +62,7 @@ export class TasksComponent {
       this.database.modifyTask(payload);
       this.database.fetchTasks();
       this.getTasks();
-    }, 400);
+    }, 500);
 
   }
 
