@@ -1,6 +1,6 @@
 import { Task } from './../../../interfaces/task';
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task-form',
@@ -10,10 +10,23 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class AddTaskFormComponent {
 
   addTaskForm = new FormGroup({
-    creationDate: new FormControl(''),
-    expiryDate: new FormControl(''),
-    taskDescription: new FormControl(''),
-    isDone: new FormControl(''),
+    creationDate: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
+    expiryDate: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
+    taskDescription: new FormControl('', [
+      Validators.required,
+      Validators.minLength(1),
+      Validators.maxLength(25),
+    ]),
+    isDone: new FormControl(false, [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
   })
 
   onSubmit(value: any){

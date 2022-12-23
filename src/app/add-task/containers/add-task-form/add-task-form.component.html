@@ -13,7 +13,6 @@
                 <input matInput formControlName="taskDescription">
               </mat-form-field>
         </div>
-
         <div class="taskForm__date">
             <mat-form-field appearance="fill">
                 <mat-label>Enter a date range</mat-label>
@@ -26,7 +25,6 @@
                 <mat-date-range-picker #picker></mat-date-range-picker>
               </mat-form-field>
         </div>
-
         <div class="taskForm__isDone">
             <mat-form-field appearance="fill">
                 <mat-label>Is done?</mat-label>
@@ -36,9 +34,8 @@
                 </mat-select>
               </mat-form-field>
         </div>
-
         <div class="taskForm__submit">
-            <button color="primary" mat-raised-button type="submit">Add new task</button>
+            <button color="primary" mat-raised-button type="submit" [disabled]="!addTaskForm.valid">Add new task</button>
         </div>
     </form>
 </div>

@@ -12,21 +12,18 @@
     flex-direction: column;
 }
 .taskForm__submit{
-    width: 212px;
+    width: 140px;
     height: 50px;
 }
 .taskForm__submit button{
     width: 100%;
     height: 100%;
 }
-
 .taskForm-border {
     border: 1px solid #4854b4;
     border-radius: 2%;
     box-shadow: 0 0 14px #5362d1;
 }
-
-.taskForm-boxSize{
-    width: 250px;
-    height: 60px;
+mat-form-field{
+    width: 300px;
 }
