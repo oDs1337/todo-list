@@ -1,9 +1,8 @@
-import { Observable, Subscription } from 'rxjs';
+import { Subscription, timer } from 'rxjs';
 import { Task } from './../../../interfaces/task';
 import { Component } from '@angular/core';
 import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.service';
 import { Store } from '@ngrx/store';
-import { OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-tasks',
@@ -30,10 +29,11 @@ export class TasksComponent {
   }
 
   getTasks(): void{
-    this.store.select((state) => state.tasks).subscribe((res) => {
-      this.tasks = res;
-      this.sortTasks();
-    })
+    this.tasksSubscription = this.store.select((state) => state.tasks)
+      .subscribe((res) => {
+        this.tasks = res;
+        this.sortTasks();
+      })
   }
 
 
@@ -51,16 +51,19 @@ export class TasksComponent {
   }
 
   checkboxChanged(task: Task): void {
-    const payload: Task = {
-      id: task.id,
-      creationDate: task.creationDate,
-      expiryDate: task.expiryDate,
-      taskDescription: task.taskDescription,
-      isDone: this.changeIsDone(task.isDone)
-    }
-    this.database.modifyTask(payload);
-    this.database.fetchTasks();
-    this.getTasks();
+    setTimeout(() => {
+      const payload: Task = {
+        id: task.id,
+        creationDate: task.creationDate,
+        expiryDate: task.expiryDate,
+        taskDescription: task.taskDescription,
+        isDone: this.changeIsDone(task.isDone)
+      }
+      this.database.modifyTask(payload);
+      this.database.fetchTasks();
+      this.getTasks();
+    }, 400);
+
   }
 
   changeIsDone(currentValue: boolean){
