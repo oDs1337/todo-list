@@ -35,8 +35,8 @@ export class AddTaskFormComponent {
 
   onSubmit(formValues: any): void{
     const payload: Task = {
-      creationDate: `${Math.floor(formValues.creationDate) / 1000}`,
-      expiryDate: `${Math.floor(formValues.expiryDate) / 1000}`,
+      creationDate: `${Math.floor(formValues.creationDate)}`,
+      expiryDate: `${Math.floor(formValues.expiryDate)}`,
       taskDescription: formValues.taskDescription,
       isDone: formValues.isDone,
     }
