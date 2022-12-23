@@ -15,7 +15,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
-    AddTaskFormComponent
+    AddTaskFormComponent,
   ],
   imports: [
     CommonModule,

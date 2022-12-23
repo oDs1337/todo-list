@@ -10,7 +10,7 @@ import { fetch } from 'src/app/state/tasks.action';
 export class TasksDatabaseService {
 
   #databaseUrl = "http://[::1]:3000/tasks?filter=%7B%0A%20%20%22offset%22%3A%200%2C%0A%20%20%22limit%22%3A%20100%2C%0A%20%20%22skip%22%3A%200%2C%0A%20%20%22order%22%3A%20%22string%22%2C%0A%20%20%22where%22%3A%20%7B%0A%20%20%20%20%22additionalProp1%22%3A%20%7B%7D%0A%20%20%7D%2C%0A%20%20%22fields%22%3A%20%7B%0A%20%20%20%20%22id%22%3A%20true%2C%0A%20%20%20%20%22creationDate%22%3A%20true%2C%0A%20%20%20%20%22expiryDate%22%3A%20true%2C%0A%20%20%20%20%22taskDescription%22%3A%20true%2C%0A%20%20%20%20%22isDone%22%3A%20true%0A%20%20%7D%0A%7D";
-  #patchUrl = "http://[::1]:3000/tasks/"
+  #tasksUrl = "http://[::1]:3000/tasks/";
 
   constructor(private http: HttpClient, private store: Store) { }
 
@@ -22,7 +22,10 @@ export class TasksDatabaseService {
   }
 
   modifyTask(task: Task): void{
-    console.log(`${this.#patchUrl}${task.id}`);
-    this.http.put<Task>(`${this.#patchUrl}${task.id}`, task).subscribe();
+    this.http.put<Task>(`${this.#tasksUrl}${task.id}`, task).subscribe();
+  }
+
+  createTask(task: Task): void{
+    this.http.post<Task>(this.#tasksUrl, task).subscribe();
   }
 }
