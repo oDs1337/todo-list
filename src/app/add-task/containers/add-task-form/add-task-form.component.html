@@ -6,7 +6,7 @@
     <button type="submit">Submit</button>
 </form> -->
 <div class="taskForm taskForm-border">
-    <form [formGroup]="addTaskForm" (ngSubmit)="onSubmit(addTaskForm.value)">
+    <form class="form" [formGroup]="addTaskForm" (ngSubmit)="onSubmit(addTaskForm.value)">
         <div class="taskForm__description">
             <mat-form-field appearance="fill">
                 <mat-label>Task description</mat-label>
@@ -14,17 +14,16 @@
               </mat-form-field>
         </div>
 
-        <div class="taskForm__creationDate">
+        <div class="taskForm__date">
             <mat-form-field appearance="fill">
-                <mat-label>Creation date</mat-label>
-                <input matInput formControlName="creationDate">
-              </mat-form-field>
-        </div>
-
-        <div class="taskForm__expiryDate">
-            <mat-form-field appearance="fill">
-                <mat-label>Expiry date</mat-label>
-                <input matInput formControlName="expiryDate">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate placeholder="Start date" formControlName="creationDate">
+                  <input matEndDate placeholder="End date" formControlName="expiryDate">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
               </mat-form-field>
         </div>
 
@@ -32,8 +31,8 @@
             <mat-form-field appearance="fill">
                 <mat-label>Is done?</mat-label>
                 <mat-select formControlName="isDone">
-                  <mat-option [value]="true">Taks is done</mat-option>
-                  <mat-option [value]="false">Taks is not done yet</mat-option>
+                  <mat-option [value]="true">Task is done</mat-option>
+                  <mat-option [value]="false">Task is not done yet</mat-option>
                 </mat-select>
               </mat-form-field>
         </div>

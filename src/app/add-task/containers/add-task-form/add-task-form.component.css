@@ -3,9 +3,13 @@
     width: 500px;
     height: 500px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+.form{
+    display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 .taskForm__submit{
     width: 212px;
@@ -20,4 +24,9 @@
     border: 1px solid #4854b4;
     border-radius: 2%;
     box-shadow: 0 0 14px #5362d1;
+}
+
+.taskForm-boxSize{
+    width: 250px;
+    height: 60px;
 }
