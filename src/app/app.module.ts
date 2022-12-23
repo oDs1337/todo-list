@@ -1,6 +1,6 @@
 import { tasksReducer } from './state/tasks.reducer';
 import { SharedModule } from './shared/shared.module';
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
