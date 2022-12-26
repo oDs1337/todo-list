@@ -24,9 +24,6 @@
     word-break: break-all;
     overflow: hidden;
 }
-.singleRecord__description:hover{
-    cursor: pointer;
-}
 .marginLeft{
     margin-left: 12px;
 }
@@ -60,6 +57,9 @@
 .doneTask:hover{
     box-shadow: 0 0 14px #5362d1;
 }
+.doneTask .dates__expiryDate{
+    color: rgb(20, 255, 51);
+}
 .undoneTask{
     border: 2px solid red;
     border-radius: 2%;
@@ -67,5 +67,8 @@
 }
 .undoneTask:hover{
     box-shadow: 0 0 14px red;
+}
+.undoneTask .dates__expiryDate{
+    color: red;
 }
 
