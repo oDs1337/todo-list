@@ -66,6 +66,10 @@ export class TasksComponent {
 
   }
 
+  textPressed(task: Task): void{
+    console.log(task);
+  }
+
   changeIsDone(currentValue: boolean){
     return !currentValue;
   }

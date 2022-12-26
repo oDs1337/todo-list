@@ -10,6 +10,7 @@ import { Output, EventEmitter } from '@angular/core';
 export class TasksBoxComponent {
 
   @Output() check = new EventEmitter<Task>();
+  @Output() text = new EventEmitter<Task>();
   @Input() tasks: Task[] = [];
   @Input() done: boolean = false;
 
@@ -17,8 +18,8 @@ export class TasksBoxComponent {
     this.check.emit(value);
   }
 
-  dupa(timestamp: string){
-    return new Date(parseInt(timestamp) * 1000);
+  onTextPressed(value: Task){
+    this.text.emit(value);
   }
 
 }

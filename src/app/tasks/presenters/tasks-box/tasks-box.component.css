@@ -1,6 +1,7 @@
 .tasks{
     width: 500px;
     height: auto;
+    font-family: 'Comfortaa';
 }
 .tasks__title{
     width: 500px;
@@ -18,8 +19,16 @@
     width: 340px;
     height: auto;
     display: flex;
-
-    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+    overflow: hidden;
+}
+.singleRecord__description:hover{
+    cursor: pointer;
+}
+.marginLeft{
+    margin-left: 12px;
 }
 .singleRecord__dates{
     display: flex;
@@ -30,7 +39,7 @@
     height: 50%;
 }
 .dates__expiryDate{
-    width: 200px;
+    width: 170px;
     height: 50%;
 }
 .datesFlex{
