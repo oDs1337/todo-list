@@ -25,7 +25,7 @@ export class AddTaskFormComponent {
     taskDescription: new FormControl('', [
       Validators.required,
       Validators.minLength(1),
-      Validators.maxLength(25),
+      Validators.maxLength(57),
     ]),
     isDone: new FormControl(false, [
       Validators.required,
