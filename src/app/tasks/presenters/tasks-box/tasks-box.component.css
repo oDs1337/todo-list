@@ -1,6 +1,7 @@
 .tasks{
     width: 500px;
     height: auto;
+    font-family: 'Comfortaa';
 }
 .tasks__title{
     width: 500px;
@@ -10,6 +11,7 @@
 .tasks__singleRecord{
     width: 500px;
     height: 100px;
+    margin-top: 24px;
     display: flex;
     justify-content: space-between;
 }
@@ -17,8 +19,16 @@
     width: 340px;
     height: auto;
     display: flex;
-
-    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+    overflow: hidden;
+}
+.singleRecord__description:hover{
+    cursor: pointer;
+}
+.marginLeft{
+    margin-left: 12px;
 }
 .singleRecord__dates{
     display: flex;
@@ -29,7 +39,7 @@
     height: 50%;
 }
 .dates__expiryDate{
-    width: 200px;
+    width: 170px;
     height: 50%;
 }
 .datesFlex{
@@ -43,9 +53,19 @@
     justify-content: center;
 }
 .doneTask{
-    border: 1px solid blue;
+    border: 2px solid #4854b4;
+    border-radius: 2%;
+    transition-duration: 500ms;
+}
+.doneTask:hover{
+    box-shadow: 0 0 14px #5362d1;
 }
 .undoneTask{
-    border: 1px solid red;
+    border: 2px solid red;
+    border-radius: 2%;
+    transition-duration: 500ms;
+}
+.undoneTask:hover{
+    box-shadow: 0 0 14px red;
 }
 

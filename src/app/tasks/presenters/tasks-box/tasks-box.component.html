@@ -11,18 +11,16 @@
         <div class="singleRecord__isDone flexCenter">
             <mat-checkbox color="primary" checked={{item.isDone}} (change)="onCheckboxChange(item)"></mat-checkbox>
         </div>
-        <div class="singleRecord__description">
-            <span>{{item.taskDescription}} / </span>
-            <span>is done {{item.isDone}}</span>
+        <div class="singleRecord__description marginLeft">
+            <span>{{item.taskDescription}}</span>
         </div>
-        <div class="singleRecord__dates">
+        <div class="singleRecord__dates marginLeft">
             <div class="dates__creationDate datesFlex">
-                creation Date {{item.creationDate | date}}
+                Created: {{item.creationDate | date}}
             </div>
             <div class="dates__expiryDate datesFlex">
-                expiry Date {{item.expiryDate | date}}
+                Expiry: {{item.expiryDate | date}}
             </div>
         </div>
     </div>
-
 </div>
