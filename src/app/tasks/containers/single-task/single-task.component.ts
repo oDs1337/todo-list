@@ -24,7 +24,6 @@ export class SingleTaskComponent {
     this.#routeSubscription = this.route.params
       .subscribe(params => {
         this.#urlId = params['id'];
-        console.log(this.#urlId);
       })
 
     this.getTask();
