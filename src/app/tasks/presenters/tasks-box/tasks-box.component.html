@@ -12,7 +12,7 @@
             <mat-checkbox color="primary" checked={{item.isDone}} (change)="onCheckboxChange(item)"></mat-checkbox>
         </div>
         <div class="singleRecord__description marginLeft">
-            <span>{{item.taskDescription}}</span>
+            <span (click)="routeToSingleTask(item.id)">{{item.taskDescription}}</span>
         </div>
         <div class="singleRecord__dates marginLeft">
             <div class="dates__creationDate datesFlex">

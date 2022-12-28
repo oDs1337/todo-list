@@ -23,6 +23,7 @@
     align-items: center;
     word-break: break-all;
     overflow: hidden;
+    cursor: pointer;
 }
 .marginLeft{
     margin-left: 12px;
