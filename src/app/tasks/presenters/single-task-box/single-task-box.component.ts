@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Task } from 'src/app/interfaces/task';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-single-task-box',
@@ -9,5 +10,10 @@ import { Task } from 'src/app/interfaces/task';
 export class SingleTaskBoxComponent {
 
   @Input() task?: Task;
+  @Output() remove = new EventEmitter<string>();
+
+  onRemovePressed(id: string): void{
+    this.remove.emit(id);
+  }
 
 }

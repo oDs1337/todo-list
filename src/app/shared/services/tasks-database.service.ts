@@ -28,4 +28,8 @@ export class TasksDatabaseService {
   createTask(task: Task): void{
     this.http.post<Task>(this.#tasksUrl, task).subscribe();
   }
+
+  deleteTask(taskId: string): void{
+    this.http.delete(`${this.#tasksUrl}${taskId}`).subscribe();
+  }
 }

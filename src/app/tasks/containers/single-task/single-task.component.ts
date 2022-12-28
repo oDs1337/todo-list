@@ -1,4 +1,5 @@
-import { ActivatedRoute } from '@angular/router';
+import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Task } from './../../../interfaces/task';
 import { Component } from '@angular/core';
@@ -18,7 +19,7 @@ export class SingleTaskComponent {
   #urlId?: string;
   singleTask?: Task;
 
-  constructor(private route: ActivatedRoute, private store: Store<{ tasks: Task[]}>) { }
+  constructor(private database: TasksDatabaseService,private router: Router,private route: ActivatedRoute, private store: Store<{ tasks: Task[]}>) { }
 
   ngOnInit(){
     this.#routeSubscription = this.route.params
@@ -43,6 +44,12 @@ export class SingleTaskComponent {
           }
         })
       })
+  }
+
+  removePressed(id: string): void{
+    this.database.deleteTask(id);
+    this.router.navigateByUrl('tasks');
+    alert('task has been removed sucessfully');
   }
 
 }
