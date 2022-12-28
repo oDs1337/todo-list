@@ -37,7 +37,7 @@
         </div>
         <div class="preview__buttons">
             <button color="primary" mat-raised-button>Edit</button>
-            <button color="warn" mat-raised-button>Remove</button>
+            <button color="warn" mat-raised-button (click)="onRemovePressed(task?.id)">Remove</button>
         </div>
     </div>
 </div>
