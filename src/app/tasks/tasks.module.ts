@@ -8,6 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { SingleTaskComponent } from './containers/single-task/single-task.component';
 import { RouterModule } from '@angular/router';
+import { SingleTaskBoxComponent } from './presenters/single-task-box/single-task-box.component';
 
 
 
@@ -16,6 +17,7 @@ import { RouterModule } from '@angular/router';
     TasksBoxComponent,
     TasksComponent,
     SingleTaskComponent,
+    SingleTaskBoxComponent,
   ],
   imports: [
     CommonModule,

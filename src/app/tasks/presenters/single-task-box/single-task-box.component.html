@@ -1,0 +1,43 @@
+<div class="singleTask singleTask-border">
+    <div class="preview">
+        <div class="preview__description">
+            <div class="description__title title">
+                <span>Task description</span>
+            </div>
+            <div class="description__content">
+                {{task?.taskDescription}}
+            </div>
+        </div>
+        <div class="preview__date">
+            <div class="date__title title">
+                <span>Date range</span>
+            </div>
+            <div class="date__content">
+                <span>{{task?.creationDate | date}} - {{task?.expiryDate | date}}</span>
+            </div>
+        </div>
+        <div class="preview__isDone">
+            <div class="isDone__title title">
+                Is task done
+            </div>
+            <div class="isDone__content" [ngClass]="task?.isDone ? 'done-color' : 'undone-color'">
+                <ng-container *ngIf="task?.isDone; else undoneTask">
+                    <span>Yeah!&nbsp;&nbsp;</span>
+                    <span class="material-symbols-outlined">
+                        mood
+                    </span>
+                </ng-container>
+                <ng-template #undoneTask>
+                    <span>Nope.&nbsp;&nbsp;</span>
+                    <span class="material-symbols-outlined">
+                        mood_bad
+                    </span>
+                </ng-template>
+            </div>
+        </div>
+        <div class="preview__buttons">
+            <button color="primary" mat-raised-button>Edit</button>
+            <button color="warn" mat-raised-button>Remove</button>
+        </div>
+    </div>
+</div>
