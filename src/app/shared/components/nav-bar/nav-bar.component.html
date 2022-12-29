@@ -7,6 +7,7 @@
             <mat-menu #menu="matMenu">
                 <button mat-menu-item routerLink="">Todo list</button>
                 <button mat-menu-item routerLink="add-task">Add task</button>
+                <button mat-menu-item routerLink="removed-tasks">Removed tasks</button>
             </mat-menu>
         </div>
         <div class="navbar__title">
@@ -14,5 +15,8 @@
         </div>
         <div class="navbar__buttons">
             <button mat-button routerLink="add-task">Add task</button>
+            <button mat-icon-button routerLink="removed-tasks">
+                <mat-icon>auto_delete</mat-icon>
+            </button>
         </div>
     </mat-toolbar-row>
