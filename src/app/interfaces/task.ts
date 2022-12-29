@@ -4,4 +4,6 @@ export interface Task{
     expiryDate: string,
     taskDescription: string,
     isDone: boolean,
+    isRemoved: boolean,
+    removedDate: string,
 }

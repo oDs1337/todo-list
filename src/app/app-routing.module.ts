@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule) },
   { path: 'add-task', loadChildren: () => import('./add-task/add-task.module').then(m => m.AddTaskModule), },
   { path: 'edit-task/:id', loadChildren: () => import('./edit-task/edit-task.module').then(m => m.EditTaskModule), },
+  { path: 'removed-tasks', loadChildren: () => import('./removed-tasks/removed-tasks.module').then(m => m.RemovedTasksModule), },
 ];
 
 @NgModule({

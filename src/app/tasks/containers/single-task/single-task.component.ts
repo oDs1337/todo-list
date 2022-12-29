@@ -46,8 +46,17 @@ export class SingleTaskComponent {
       })
   }
 
-  removePressed(id: string): void{
-    this.database.deleteTask(id);
+  removePressed(task: Task): void{
+    const payload: Task = {
+      id: task.id,
+      creationDate: task.creationDate,
+      expiryDate: task.expiryDate,
+      taskDescription: task.taskDescription,
+      isDone: task.isDone,
+      isRemoved: true,
+      removedDate: `${Date.now()}`,
+    }
+    this.database.modifyTask(payload);
     this.router.navigateByUrl('tasks');
     alert('task has been removed sucessfully');
   }

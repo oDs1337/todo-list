@@ -57,7 +57,9 @@ export class TasksComponent {
         creationDate: task.creationDate,
         expiryDate: task.expiryDate,
         taskDescription: task.taskDescription,
-        isDone: this.changeIsDone(task.isDone)
+        isDone: this.changeIsDone(task.isDone),
+        isRemoved: false,
+        removedDate: "0",
       }
       this.database.modifyTask(payload);
       this.database.fetchTasks();

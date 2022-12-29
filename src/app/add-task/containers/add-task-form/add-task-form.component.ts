@@ -39,6 +39,8 @@ export class AddTaskFormComponent {
       expiryDate: `${Math.floor(formValues.expiryDate)}`,
       taskDescription: formValues.taskDescription,
       isDone: formValues.isDone,
+      isRemoved: false,
+      removedDate: "0",
     }
     this.database.createTask(payload);
     this.router.navigate(['tasks']);

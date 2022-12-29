@@ -7,20 +7,22 @@
             Undone tasks:
         </ng-template>
     </div>
-    <div class="tasks__singleRecord" *ngFor="let item of tasks" [ngClass]="item.isDone ? 'doneTask' : 'undoneTask'">
-        <div class="singleRecord__isDone flexCenter">
-            <mat-checkbox color="primary" checked={{item.isDone}} (change)="onCheckboxChange(item)"></mat-checkbox>
-        </div>
-        <div class="singleRecord__description marginLeft">
-            <span (click)="routeToSingleTask(item.id)">{{item.taskDescription}}</span>
-        </div>
-        <div class="singleRecord__dates marginLeft">
-            <div class="dates__creationDate datesFlex">
-                Created: {{item.creationDate | date}}
+    <ng-container *ngFor="let item of tasks">
+        <div *ngIf="!item.isRemoved" class="tasks__singleRecord" [ngClass]="item.isDone ? 'doneTask' : 'undoneTask'">
+            <div class="singleRecord__isDone flexCenter">
+                <mat-checkbox color="primary" checked={{item.isDone}} (change)="onCheckboxChange(item)"></mat-checkbox>
             </div>
-            <div class="dates__expiryDate datesFlex">
-                Expiry: {{item.expiryDate | date}}
+            <div class="singleRecord__description marginLeft">
+                <span (click)="routeToSingleTask(item.id)">{{item.taskDescription}}</span>
+            </div>
+            <div class="singleRecord__dates marginLeft">
+                <div class="dates__creationDate datesFlex">
+                    Created: {{item.creationDate | date}}
+                </div>
+                <div class="dates__expiryDate datesFlex">
+                    Expiry: {{item.expiryDate | date}}
+                </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 </div>
