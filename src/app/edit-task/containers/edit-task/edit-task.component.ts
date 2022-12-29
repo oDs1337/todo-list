@@ -74,7 +74,6 @@ export class EditTaskComponent {
   }
 
   onSubmit(formValues: any): void{
-    console.log(this.task)
     const payload: Task = {
       id: this.task.id,
       creationDate: `${Math.floor(formValues.creationDate)}`,
