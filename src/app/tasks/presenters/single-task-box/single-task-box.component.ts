@@ -10,10 +10,10 @@ import { Output, EventEmitter } from '@angular/core';
 export class SingleTaskBoxComponent {
 
   @Input() task?: Task;
-  @Output() remove = new EventEmitter<string>();
+  @Output() remove = new EventEmitter<Task>();
 
-  onRemovePressed(id: string): void{
-    this.remove.emit(id);
+  onRemovePressed(task: Task): void{
+    this.remove.emit(task);
   }
 
 }

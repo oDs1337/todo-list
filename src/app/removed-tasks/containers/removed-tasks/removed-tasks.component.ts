@@ -30,25 +30,34 @@ export class RemovedTasksComponent {
       .subscribe((res) => {
         this.#tasks = res;
         this.getRemovedTasks();
-        console.log(this.removedTasks);
       })
   }
 
   getRemovedTasks(): void{
     this.removedTasks = [];
     this.#tasks.forEach((element) => {
-      //TODO isRemoved instead of isDone
-      if(element.isDone === true){
+      if(element.isRemoved === true){
         this.removedTasks.push(element)
       }
     })
   }
 
   onRestorePressed(task: Task): void{
-    console.log(task);
+    const payload: Task = {
+      id: task.id,
+      creationDate: task.creationDate,
+      expiryDate: task.expiryDate,
+      taskDescription: task.taskDescription,
+      isDone: task.isDone,
+      isRemoved: false,
+      removedDate: "0",
+    }
+    this.database.modifyTask(payload);
+    this.database.fetchTasks();
   }
 
   onDeletePressed(id: string): void{
-    console.log(id);
+    this.database.deleteTask(id);
+    this.database.fetchTasks();
   }
 }

@@ -21,6 +21,8 @@ export class EditTaskComponent {
     expiryDate: '',
     taskDescription: '',
     isDone: false,
+    isRemoved: false,
+    removedDate: '',
   }
   editTaskForm!: FormGroup;
 
@@ -72,12 +74,15 @@ export class EditTaskComponent {
   }
 
   onSubmit(formValues: any): void{
+    console.log(this.task)
     const payload: Task = {
       id: this.task.id,
       creationDate: `${Math.floor(formValues.creationDate)}`,
       expiryDate: `${Math.floor(formValues.expiryDate)}`,
       taskDescription: formValues.taskDescription,
       isDone: formValues.isDone,
+      isRemoved: false,
+      removedDate: "0",
     }
     this.database.modifyTask(payload);
     this.router.navigate(['tasks']);
