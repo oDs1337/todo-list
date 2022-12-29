@@ -1,1 +1,1 @@
-<app-removed-tasks-box [removedTasks]="removedTasks"></app-removed-tasks-box>
+<app-removed-tasks-box (delete)="onDeletePressed($event)"  (restore)="onRestorePressed($event)" [removedTasks]="removedTasks"></app-removed-tasks-box>

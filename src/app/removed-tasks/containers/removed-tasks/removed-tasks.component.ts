@@ -43,4 +43,12 @@ export class RemovedTasksComponent {
       }
     })
   }
+
+  onRestorePressed(task: Task): void{
+    console.log(task);
+  }
+
+  onDeletePressed(id: string): void{
+    console.log(id);
+  }
 }

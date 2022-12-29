@@ -4,8 +4,11 @@
     </div>
     <div class="tasks__singleRecord removedTasks" *ngFor="let item of removedTasks">
         <div class="singleRecord__restore flexCenter">
-            <button mat-icon-button color="warn">
+            <button mat-icon-button color="warn" (click)="onRestorePressed(item)">
                 <mat-icon>restore</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="onDeletePressed(item.id)">
+                <mat-icon>delete_forever</mat-icon>
             </button>
         </div>
         <div class="singleRecord__description marginLeft">

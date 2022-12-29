@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/interfaces/task';
 
 @Component({
@@ -9,5 +9,15 @@ import { Task } from 'src/app/interfaces/task';
 export class RemovedTasksBoxComponent {
 
   @Input() removedTasks?: Task[];
+  @Output() restore = new EventEmitter<Task>();
+  @Output() delete = new EventEmitter<string>();
+
+  onRestorePressed(task: Task): void{
+    this.restore.emit(task);
+  }
+
+  onDeletePressed(id: string): void{
+    this.delete.emit(id);
+  }
 
 }
