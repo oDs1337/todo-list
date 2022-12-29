@@ -5,11 +5,13 @@ import { RemovedTasksRoutingModule } from './removed-tasks-routing.module';
 import { RemovedTasksComponent } from './containers/removed-tasks/removed-tasks.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { RemovedTasksBoxComponent } from './presenters/removed-tasks-box/removed-tasks-box.component';
 
 
 @NgModule({
   declarations: [
-    RemovedTasksComponent
+    RemovedTasksComponent,
+    RemovedTasksBoxComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
   ],
   exports: [
-    RemovedTasksComponent
+    RemovedTasksComponent,
+    RemovedTasksBoxComponent
   ]
 })
 export class RemovedTasksModule { }
