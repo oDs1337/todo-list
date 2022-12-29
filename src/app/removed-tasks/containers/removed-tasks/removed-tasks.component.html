@@ -1,1 +1,26 @@
-<p>removed-tasks works!</p>
+<div class="tasks">
+    <div class="tasks__title flexCenter">
+       <span>Removed tasks:</span>
+    </div>
+    <div class="tasks__singleRecord removedTasks" *ngFor="let item of removedTasks">
+        <div class="singleRecord__restore flexCenter">
+            <button mat-icon-button color="warn">
+                <mat-icon>restore</mat-icon>
+            </button>
+        </div>
+        <div class="singleRecord__description marginLeft">
+            <span>{{item.taskDescription}}</span>
+        </div>
+        <div class="singleRecord__dates marginLeft">
+            <div class="dates__creationDate datesFlex">
+                Created: {{item.creationDate | date}}
+            </div>
+            <div class="dates__expiryDate datesFlex">
+                Expiry: {{item.expiryDate | date}}
+            </div>
+            <div class="dates__deletedDate datesFlex">
+                Deleted: {{item.expiryDate | date}}
+            </div>
+        </div>
+    </div>
+</div>
