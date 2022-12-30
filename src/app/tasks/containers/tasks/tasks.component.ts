@@ -12,7 +12,6 @@ import { Store } from '@ngrx/store';
 
 export class TasksComponent {
 
-  tasks: Task[] = [];
   tasksSubscription = new Subscription();
   undoneTasks: Task[] = [];
   doneTasks: Task[] = [];
@@ -31,16 +30,15 @@ export class TasksComponent {
   getTasks(): void{
     this.tasksSubscription = this.store.select((state) => state.tasks)
       .subscribe((res) => {
-        this.tasks = res;
-        this.sortTasks();
+        this.sortTasks(res);
       })
   }
 
 
-  sortTasks(): void{
+  sortTasks(test: Task[]): void{
     this.doneTasks = [];
     this.undoneTasks = [];
-    this.tasks.forEach((element) => {
+    test.forEach((element) => {
       if(element.isDone === true){
         this.doneTasks.push(element);
       }
