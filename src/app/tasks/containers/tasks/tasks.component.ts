@@ -1,6 +1,6 @@
-import { Subscription, timer } from 'rxjs';
-import { Task } from './../../../interfaces/task';
-import { Component } from '@angular/core';
+import { Task } from 'src/app/shared/interfaces/task';
+import { Subscription, } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.service';
 import { Store } from '@ngrx/store';
 
@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./tasks.component.css']
 })
 
-export class TasksComponent {
+export class TasksComponent implements OnInit, OnDestroy {
 
   tasksSubscription = new Subscription();
   undoneTasks: Task[] = [];
@@ -23,29 +23,37 @@ export class TasksComponent {
     this.getTasks();
   }
 
-  ngOnDestry(): void{
+  ngOnDestroy(): void{
     this.tasksSubscription.unsubscribe;
   }
 
-  getTasks(): void{
+  getTasks(): void {
     this.tasksSubscription = this.store.select((state) => state.tasks)
       .subscribe((res) => {
-        this.sortTasks(res);
+        const { doneTasks, undoneTasks } = this.sortTasks(res);
+        this.doneTasks = doneTasks;
+        this.undoneTasks = undoneTasks;
       })
   }
 
 
-  sortTasks(tasks: Task[]): void{
-    this.doneTasks = [];
-    this.undoneTasks = [];
+  sortTasks(tasks: Task[]) {
+    const sortedTasks: {
+      doneTasks: Task[];
+      undoneTasks: Task[];
+    } = {
+       doneTasks: [],
+       undoneTasks: [],
+    }
+
     tasks.forEach((element) => {
       if(element.isDone === true){
-        this.doneTasks.push(element);
-      }
-      else{
-        this.undoneTasks.push(element)
+        sortedTasks.doneTasks.push(element);
+      }    else{
+        sortedTasks.undoneTasks.push(element)
       }
     })
+    return sortedTasks;
   }
 
   checkboxChanged(task: Task): void {

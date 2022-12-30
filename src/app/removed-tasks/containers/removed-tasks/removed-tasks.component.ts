@@ -1,6 +1,6 @@
 import { Subscription } from 'rxjs';
 import { Component } from '@angular/core';
-import { Task } from 'src/app/interfaces/task';
+import { Task } from 'src/app/shared/interfaces/task';
 import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.service';
 import { Store } from '@ngrx/store';
 

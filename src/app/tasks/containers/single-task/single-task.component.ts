@@ -1,8 +1,8 @@
 import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Task } from './../../../interfaces/task';
-import { Component } from '@angular/core';
+import { Task } from '../../../shared/interfaces/task';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -12,7 +12,7 @@ import { Store } from '@ngrx/store';
 })
 
 
-export class SingleTaskComponent {
+export class SingleTaskComponent implements OnInit, OnDestroy {
 
   #routeSubscription?: Subscription;
   #taskSubscription?: Subscription;
@@ -48,11 +48,7 @@ export class SingleTaskComponent {
 
   removePressed(task: Task): void{
     const payload: Task = {
-      id: task.id,
-      creationDate: task.creationDate,
-      expiryDate: task.expiryDate,
-      taskDescription: task.taskDescription,
-      isDone: task.isDone,
+      ...task,
       isRemoved: true,
       removedDate: `${Date.now()}`,
     }

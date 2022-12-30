@@ -4,7 +4,7 @@ import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.ser
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Task } from './../../../interfaces/task';
+import { Task } from '../../../shared/interfaces/task';
 
 @Component({
   selector: 'app-edit-task',
@@ -87,6 +87,4 @@ export class EditTaskComponent {
     this.router.navigate(['tasks']);
     alert('Your task has been modified sucessfully');
   }
-
-
 }

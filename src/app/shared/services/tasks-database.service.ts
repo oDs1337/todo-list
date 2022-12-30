@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Task } from '../../interfaces/task';
+import { Task } from '../interfaces/task';
 import { Store } from '@ngrx/store';
-import { fetch } from 'src/app/state/tasks.action';
+import { fetch } from 'src/app/shared/state/tasks.action';
 
 @Injectable({
   providedIn: 'root'

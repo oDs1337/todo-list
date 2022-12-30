@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Task } from './../../../interfaces/task';
+import { Task } from '../../../shared/interfaces/task';
 import { Component, Input } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from 'src/app/interfaces/task';
+import { Task } from 'src/app/shared/interfaces/task';
 
 @Component({
   selector: 'app-removed-tasks-box',

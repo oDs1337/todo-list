@@ -1,4 +1,4 @@
-import { tasksReducer } from './state/tasks.reducer';
+import { tasksReducer } from './shared/state/tasks.reducer';
 import { SharedModule } from './shared/shared.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

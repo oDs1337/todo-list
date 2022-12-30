@@ -1,4 +1,4 @@
-import { Task } from './../../../interfaces/task';
+import { Task } from '../../../shared/interfaces/task';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TasksDatabaseService } from 'src/app/shared/services/tasks-database.service';
