@@ -35,10 +35,10 @@ export class TasksComponent {
   }
 
 
-  sortTasks(test: Task[]): void{
+  sortTasks(tasks: Task[]): void{
     this.doneTasks = [];
     this.undoneTasks = [];
-    test.forEach((element) => {
+    tasks.forEach((element) => {
       if(element.isDone === true){
         this.doneTasks.push(element);
       }
