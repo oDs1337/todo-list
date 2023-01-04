@@ -1,4 +1,4 @@
-## Another todo-list - [github.io/todo-list](https://ods1337.github.io/todo-list)
+## Another todo-list - [ods1337.github.io/todo-list](https://ods1337.github.io/todo-list)
 
 Stack:
 -Angular
